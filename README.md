@@ -6,12 +6,12 @@
 
 Audit product funnel events for ordering, ownership, and conversion gaps. It solves review drift by turning plain-text plans into deterministic CI-friendly findings.
 
-## Input Contract 32
+## Input Contract
 
 Accepts funnel event map. The reader supports plain text, JSON, JSONL, and CSV so the
 tool can fit into scripts, CI jobs, and review exports.
 
-## CLI Walkthrough 32
+## CLI Walkthrough
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -20,7 +20,7 @@ funnel-event-check examples/sample.txt --json --fail-on medium
 python -m funnel_event_check --help
 ```
 
-## Rule Surface 32
+## Rule Surface
 
 | Rule | Severity | Meaning |
 |---|---:|---|
@@ -28,7 +28,7 @@ python -m funnel_event_check --help
 | `missing-next-event` | medium | next funnel event missing |
 | `undefined-order` | low | event order missing |
 
-## Validation Notes 32
+## Validation Notes
 
 ```bash
 ruff check .
