@@ -1,48 +1,47 @@
-# funnel-event-check
+<img src="assets/readme-cover.svg" alt="Funnel Event Check cover" width="100%" />
 
-> Audit product funnel events for ordering, ownership, and conversion gaps.
+# Funnel Event Check
 
-## Operator guide Overview
+Audit product funnel events for ordering, ownership, and conversion gaps.
 
-Audit product funnel events for ordering, ownership, and conversion gaps. It solves review drift by turning plain-text plans into deterministic CI-friendly findings.
+![stack](https://img.shields.io/badge/stack-Python-be185d?style=flat-square) ![python](https://img.shields.io/badge/python-3.11-4b5563?style=flat-square) ![license](https://img.shields.io/badge/license-MIT-2563eb?style=flat-square) ![ci](https://img.shields.io/badge/ci-GitHub%20Actions-16a34a?style=flat-square)
 
-## Input Contract
+## Workflow
 
-Accepts funnel event map. The reader supports plain text, JSON, JSONL, and CSV so the
-tool can fit into scripts, CI jobs, and review exports.
+1. Collect the review notes or exported records.
+2. Run `funnel-event-check` against the file.
+3. Read the findings in Markdown, or switch to JSON for automation.
+4. Fail CI only at the severity level you care about.
 
-## CLI Walkthrough
+## Checks
+
+| Rule | Severity | What it catches |
+| --- | --- | --- |
+| `unknown-owner` | high | event owner missing |
+| `missing-next-event` | medium | next funnel event missing |
+| `undefined-order` | low | event order missing |
+
+## Command line
 
 ```bash
 python -m pip install -e ".[dev]"
 funnel-event-check examples/sample.txt
 funnel-event-check examples/sample.txt --json --fail-on medium
-python -m funnel_event_check --help
 ```
 
-## Rule Surface
-
-| Rule | Severity | Meaning |
-|---|---:|---|
-| `unknown-owner` | high | event owner missing |
-| `missing-next-event` | medium | next funnel event missing |
-| `undefined-order` | low | event order missing |
-
-## Validation Notes
-
-```bash
-ruff check .
-pytest
-python -m funnel_event_check --help
-```
-
-Example risky input:
+## Sample risky input
 
 ```text
 event signup_started owner unknown next_event missing order undefined
 ```
 
-Architecture: `cli.py` handles arguments, `core.py` reads and evaluates records, and
-`rules.py` keeps the project-specific policy explicit.
+## Project shape
 
-License: MIT.
+```text
+.github/        CI workflow
+examples/       sample inputs
+src/            package source
+tests/          test coverage
+.gitignore      project file
+pyproject.toml  package metadata
+```
