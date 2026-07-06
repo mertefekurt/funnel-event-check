@@ -1,10 +1,25 @@
 <svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Funnel Event Check cover">
-  <rect width="1280" height="420" rx="28" fill="#082f2b"/>
 
-  <path d="M92 92h1096v236H92z" fill="none" stroke="#0f766e" stroke-width="10"/>
-  <path d="M92 142h1096" stroke="#0f766e" stroke-width="10"/>
-  <circle cx="130" cy="117" r="9" fill="#22c55e"/><circle cx="164" cy="117" r="9" fill="#a7f3d0"/><circle cx="198" cy="117" r="9" fill="#ecfdf5"/>
-  <text x="132" y="225" fill="#ecfdf5" font-family="Sora, ui-sans-serif, system-ui" font-size="53" font-weight="800">Funnel Event Check</text>
-  <text x="136" y="280" fill="#a7f3d0" font-family="Sora, ui-sans-serif, system-ui" font-size="23">Focused CLI for funnel analytics</text>
-  <text x="890" y="120" fill="#22c55e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16">PRODUCT OPERATIONS</text>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity=".34"/>
+      <stop offset=".54" stop-color="#1d102b" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f472b6" stop-opacity=".30"/>
+    </linearGradient>
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="61" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .10"/></feComponentTransfer>
+      <feBlend mode="soft-light" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="420" rx="30" fill="#1d102b"/>
+  <rect width="1280" height="420" rx="30" fill="url(#g)" filter="url(#grain)"/>
+
+  <path d="M0 330c190-70 330-42 490 0s328 68 520-8 278-68 270-64v162H0z" fill="#a78bfa" opacity=".16"/>
+  <path d="M90 92h1088v236H90z" fill="none" stroke="#a78bfa" stroke-width="8"/>
+  <path d="M90 142h1088" stroke="#a78bfa" stroke-width="8"/>
+  <text x="132" y="220" fill="#faf5ff" font-family="IBM Plex Sans, ui-sans-serif, system-ui" font-size="60" font-weight="850">Funnel Event Check</text>
+  <text x="136" y="276" fill="#e9d5ff" font-family="IBM Plex Sans, ui-sans-serif, system-ui" font-size="23">Audit product funnel events for ordering, ownership,...</text>
+  <text x="874" y="120" fill="#f472b6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="800">OPERATIONS</text>
 </svg>
