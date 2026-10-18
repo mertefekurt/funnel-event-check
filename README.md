@@ -1,20 +1,21 @@
 # Funnel Event Check
 
-Audit product funnel events for ordering, ownership, and conversion gaps.
-
 ![Funnel Event Check cover](assets/readme-cover.svg)
 
-## Finding map
+Audit product funnel events for ordering, ownership, and conversion gaps.
 
-![Workflow diagram](assets/readme-diagram.svg)
+`Python`
 
-## Decision points
+## Start here
 
-- `unknown-owner` - event owner missing (high); assign analytics owner.
-- `missing-next-event` - next funnel event missing (medium); define funnel transition.
-- `undefined-order` - event order missing (low); number funnel stages.
+```bash
+git clone https://github.com/mertefekurt/funnel-event-check.git
+cd funnel-event-check
+python -m pip install -e ".[dev]"
+funnel-event-check examples/sample.txt
+```
 
-## Files to open first
+## Project map
 
 ```text
 .github/        CI workflow
@@ -23,11 +24,8 @@ src/            package source
 tests/          test coverage
 ```
 
-## Fresh clone path
+## Repository
 
-```bash
-git clone https://github.com/mertefekurt/funnel-event-check.git
-cd funnel-event-check
-python -m pip install -e ".[dev]"
-funnel-event-check examples/sample.txt
-```
+[Open the source on GitHub →](https://github.com/mertefekurt/funnel-event-check)
+
+[MIT License](LICENSE)
